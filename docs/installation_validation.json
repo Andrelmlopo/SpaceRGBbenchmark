@@ -1,0 +1,40 @@
+{
+  "clean_cpu_demo": {
+    "datasets": 4,
+    "jobs_complete": 4,
+    "reports": true
+  },
+  "cookiecutter_plugin": {
+    "all_jobs_complete": true,
+    "dataset_interfaces": 4,
+    "installed_entry_point": true
+  },
+  "cpu_source_tests": {
+    "passed": 29,
+    "python": "3.13"
+  },
+  "date": "2026-09-22",
+  "fresh_all_cuda_environments": false,
+  "fresh_source_fetch": [
+    "Pico-HAT",
+    "Mega-HAT",
+    "megapose6d"
+  ],
+  "fresh_srt3d_build": true,
+  "installed_wheel_tests": {
+    "outside_source_tree": true,
+    "passed": 29,
+    "python": "3.10.12"
+  },
+  "source_fetch_transport": "GitHub SSH; HTTPS to personal repos stalled on this host",
+  "clean_clone_outside_workspace": true,
+  "clean_clone_tests": 27,
+  "coordinator_environment": "Python 3.10 and 3.13; pinned core requirements available",
+  "native_cli_inference_score_report": {
+    "model": "picopose",
+    "dataset": "swisscube",
+    "input_frames": 1,
+    "status": "complete",
+    "development_run": true
+  }
+}

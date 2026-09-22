@@ -1,0 +1,54 @@
+[
+  {
+    "actual_sha256": "f59ebc8fbee5117067e4076086eea4ed02a8b19e4a1ddaa8a431dc3f9fb7c042",
+    "dataset": "spark",
+    "maximum_absolute_difference": {
+      "ADD_S_m": 0.0,
+      "E_p": 0.0,
+      "E_q_deg": 0.0,
+      "E_t_m": 0.0
+    },
+    "reference_sha256": "a54fa91fa0d256c723ac48de0cdee1434d714ea4a656f6d4ab69812df40d7b11",
+    "targets": 30000,
+    "valid": 30000
+  },
+  {
+    "actual_sha256": "6e35e396ffa0498043c72cb93b159db3f9455bde93fdea9d309d4a7abcf9f9f7",
+    "dataset": "ycbv",
+    "maximum_absolute_difference": {
+      "ADD_S_m": 0.0,
+      "E_p": 0.0,
+      "E_q_deg": 0.0,
+      "E_t_m": 0.0
+    },
+    "reference_sha256": "4a58716fc616c3570741b96c44d1abda223e6569a58d48d494bc290b7582405a",
+    "targets": 3073,
+    "valid": 3048
+  },
+  {
+    "actual_sha256": "5ceffe42d0306ef49ac4b1377afa2b4a576d2efcaa2918db0a5c1525f4fd221a",
+    "dataset": "swisscube",
+    "maximum_absolute_difference": {
+      "ADD_S_m": 0.0,
+      "E_p": 0.0,
+      "E_q_deg": 0.0,
+      "E_t_m": 0.0
+    },
+    "reference_sha256": "6fbb47f98388dfbab27d096caaea8038ba3ce805c961aa190f7a640d025285c4",
+    "targets": 8522,
+    "valid": 8522
+  },
+  {
+    "actual_sha256": "32148bb8ff3217b81762017066b90cb9824ff41fb9b13e53ccc659134ca3427e",
+    "dataset": "shirt",
+    "maximum_absolute_difference": {
+      "ADD_S_m": 0.0,
+      "E_p": 7.695480475078398e-08,
+      "E_q_deg": 2.1651143651268967e-06,
+      "E_t_m": 4.6918592155886785e-07
+    },
+    "reference_sha256": "800c18742eaa0f53c4089cccc6381ce07579be92f5b3705a0448974b7e73f305",
+    "targets": 9484,
+    "valid": 9484
+  }
+]

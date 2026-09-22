@@ -1,0 +1,8 @@
+{
+  "generator": "cookiecutter-data-science",
+  "version": "2.3.0",
+  "template": "https://github.com/drivendataorg/cookiecutter-data-science",
+  "revision": "0f6b163cdbe3918a2c65ab57ad9fefda93976d9e",
+  "project_name": "spacergbbenchmark",
+  "adaptations": "src package, explicit protocols, model adapters, outputs under results"
+}

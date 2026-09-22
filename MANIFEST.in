@@ -1,0 +1,13 @@
+include LICENSE README.md THIRD_PARTY.md AGENTS.md Makefile CITATION.cff
+recursive-include configs *.json
+recursive-include docs *.md *.json
+recursive-include environments *.json *.txt *.patch
+recursive-include protocols *.json *.md
+recursive-include scripts *.py
+recursive-include native *.cpp
+recursive-include templates *
+recursive-include tests *.py
+exclude configs/*.local.json
+exclude configs/*.local.yaml
+global-exclude __pycache__ *.py[cod]
+recursive-include LICENSES *.txt

@@ -1,0 +1,8 @@
+# Install the CUDA 11.8 PyTorch wheels and native extensions separately.
+numpy==2.2.6
+scipy==1.15.3
+Pillow==11.3.0
+opencv-python-headless==4.11.0.86
+matplotlib==3.10.6
+tqdm==4.67.1
+PyYAML==6.0.3

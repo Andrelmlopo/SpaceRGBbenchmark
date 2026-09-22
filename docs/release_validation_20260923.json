@@ -1,0 +1,150 @@
+{
+  "date": "2026-09-23",
+  "citation": "https://arxiv.org/pdf/2609.21597",
+  "source_revisions": {
+    "Pico-HAT": "343993a678656fa66d77f81b30ed418af77f508f",
+    "Mega-HAT": "27f765a6b727e7505bb58e4c32267c5be3e64e5f"
+  },
+  "numerical_settings_unchanged": true,
+  "cpu_tests_passed": 29,
+  "srt3d_build": true,
+  "srt3d_so3_selfcheck": true,
+  "observation_replays": [
+    {
+      "dataset": "spark",
+      "model": "pico_hat",
+      "frames": 36,
+      "anchors": 6,
+      "replay_exact": true,
+      "prefix_lengths": [
+        1,
+        6,
+        12,
+        24,
+        36
+      ],
+      "prefixes_exact": true,
+      "observations_sha256": "3a6811a4c106bbac8385b16b78580b1767b5120b8d30f1848205ed1fcf86c56f",
+      "predictions_sha256": "018148ba0841e89fe69d699b576324c1becf1920c769db984bb09a4a6ef4e4f6"
+    },
+    {
+      "dataset": "ycbv",
+      "model": "pico_hat",
+      "frames": 84,
+      "anchors": 4,
+      "replay_exact": true,
+      "prefix_lengths": [
+        1,
+        6,
+        12,
+        24,
+        84
+      ],
+      "prefixes_exact": true,
+      "observations_sha256": "1dfc422d6e4081e39a64fe1d1593343345aff284b77a5c6e57d8ccb41179896d",
+      "predictions_sha256": "b6f31c57846fea9d95ed27996d1bc652acb80d3145791185264b916ca1747608"
+    },
+    {
+      "dataset": "swisscube",
+      "model": "pico_hat",
+      "frames": 36,
+      "anchors": 6,
+      "replay_exact": true,
+      "prefix_lengths": [
+        1,
+        6,
+        12,
+        24,
+        36
+      ],
+      "prefixes_exact": true,
+      "observations_sha256": "45fa799d0ae37ccac71e869a0b0507079d3e40830b4bb8862ee6461246d26048",
+      "predictions_sha256": "6a2505a484f5c4d0ab0382f404fa577101aee1ec8530dd376eafa47f69ca2af1"
+    },
+    {
+      "dataset": "shirt",
+      "model": "pico_hat",
+      "frames": 36,
+      "anchors": 6,
+      "replay_exact": true,
+      "prefix_lengths": [
+        1,
+        6,
+        12,
+        24,
+        36
+      ],
+      "prefixes_exact": true,
+      "observations_sha256": "1eaf2bd2941a97b2e8938f4f1fa8cfabd38f7404b71efc3c8c788bf55b7c40f1",
+      "predictions_sha256": "289bd258845f65713a36524e5973751a108be33dd3337ec628f80521fa138915"
+    },
+    {
+      "dataset": "spark",
+      "model": "mega_hat",
+      "frames": 36,
+      "anchors": 9,
+      "replay_exact": true,
+      "prefix_lengths": [
+        1,
+        6,
+        12,
+        24,
+        36
+      ],
+      "prefixes_exact": true,
+      "observations_sha256": "dfcd628cf71597ee2a69a7d1766de92e271b9e83a334bffffdb45a9b13cc6d55",
+      "predictions_sha256": "05a3dad361a7b2cfa6f5178bee394c1b504048efe471a82520263fe2e4311ae5"
+    },
+    {
+      "dataset": "ycbv",
+      "model": "mega_hat",
+      "frames": 84,
+      "anchors": 4,
+      "replay_exact": true,
+      "prefix_lengths": [
+        1,
+        6,
+        12,
+        24,
+        84
+      ],
+      "prefixes_exact": true,
+      "observations_sha256": "5e7b6c4956fee55904882ccde3611c36990df29e372fa8828a4e704daf88f416",
+      "predictions_sha256": "f43d6b31f5974a3873f82c89ceca6779a47a70ef2e03e4d4d2d11a9974e61307"
+    },
+    {
+      "dataset": "swisscube",
+      "model": "mega_hat",
+      "frames": 36,
+      "anchors": 9,
+      "replay_exact": true,
+      "prefix_lengths": [
+        1,
+        6,
+        12,
+        24,
+        36
+      ],
+      "prefixes_exact": true,
+      "observations_sha256": "cb8a36f895c66be9035066c82f8804e4895d0b8f5d17fd64019af8cf2e5566c8",
+      "predictions_sha256": "21395ac0b9c4520fb5bd889d62038a65564832ff01cbfb34a9b5e51b76949bce"
+    },
+    {
+      "dataset": "shirt",
+      "model": "mega_hat",
+      "frames": 36,
+      "anchors": 9,
+      "replay_exact": true,
+      "prefix_lengths": [
+        1,
+        6,
+        12,
+        24,
+        36
+      ],
+      "prefixes_exact": true,
+      "observations_sha256": "2cf21d5f5440b0b54e430c0eca93e9b820c0c12646052afaa83e294e9c69419f",
+      "predictions_sha256": "0b64321486d221ed6bf8f982ad94420d16a501e1f27596e8f36ab55d223b91e2"
+    }
+  ]
+}

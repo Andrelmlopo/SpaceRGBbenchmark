@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv*/
+.env
+build/
+dist/
+data/
+weights/
+third_party/
+results/
+configs/local*
+*.local.json
+*.local.yaml

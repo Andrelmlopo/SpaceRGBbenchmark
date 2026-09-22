@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "For Pico-HAT or Mega-HAT experiments, cite the HAT paper and the relevant model and dataset papers."
+title: "spacergbbenchmark"
+type: software
+authors:
+  - family-names: Lopo
+    given-names: André
+version: 0.1.0
+repository-code: "https://github.com/Andrelmlopo/spacergbbenchmark"
+license: MIT
+preferred-citation:
+  type: article
+  title: "HAT: Hypothesis-Anchored Tracking for Video Monocular Spacecraft Pose Estimation"
+  authors:
+    - family-names: Lopo
+      given-names: André
+    - family-names: Dehban
+      given-names: Atabak
+    - family-names: Ventura
+      given-names: Rodrigo
+  journal: arXiv
+  year: 2026
+  date-published: 2026-09-18
+  doi: "10.48550/arXiv.2609.21597"
+  url: "https://arxiv.org/pdf/2609.21597"

@@ -1,0 +1,10 @@
+{
+  "picopose.ckpt": {
+    "sha256": "9d1173d3db55e690e468edde453b06d47402d7b993748e4d2fe8f34a203014c0",
+    "url": "https://drive.google.com/file/d/1hDDr0o4pEEHKi4QOUQ4zU0I-Ts5H2bI1/view"
+  },
+  "droid.pth": {
+    "sha256": "46476ef64cde45a97504910d6f3de2eef7b398ec1c6e4e668815c29076024526",
+    "url": "https://drive.google.com/file/d/1PpqVt1H4maBa_GbPJp4NwxRsd9jk-elh/view"
+  }
+}

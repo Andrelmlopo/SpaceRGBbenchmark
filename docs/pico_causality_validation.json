@@ -1,0 +1,70 @@
+[
+  {
+    "anchors": 6,
+    "dataset": "spark",
+    "frames": 36,
+    "model": "pico_hat",
+    "observations_sha256": "3a6811a4c106bbac8385b16b78580b1767b5120b8d30f1848205ed1fcf86c56f",
+    "predictions_sha256": "018148ba0841e89fe69d699b576324c1becf1920c769db984bb09a4a6ef4e4f6",
+    "prefix_lengths": [
+      1,
+      6,
+      12,
+      24,
+      36
+    ],
+    "prefixes_exact": true,
+    "replay_exact": true
+  },
+  {
+    "anchors": 6,
+    "dataset": "swisscube",
+    "frames": 36,
+    "model": "pico_hat",
+    "observations_sha256": "45fa799d0ae37ccac71e869a0b0507079d3e40830b4bb8862ee6461246d26048",
+    "predictions_sha256": "6a2505a484f5c4d0ab0382f404fa577101aee1ec8530dd376eafa47f69ca2af1",
+    "prefix_lengths": [
+      1,
+      6,
+      12,
+      24,
+      36
+    ],
+    "prefixes_exact": true,
+    "replay_exact": true
+  },
+  {
+    "anchors": 6,
+    "dataset": "shirt",
+    "frames": 36,
+    "model": "pico_hat",
+    "observations_sha256": "1eaf2bd2941a97b2e8938f4f1fa8cfabd38f7404b71efc3c8c788bf55b7c40f1",
+    "predictions_sha256": "289bd258845f65713a36524e5973751a108be33dd3337ec628f80521fa138915",
+    "prefix_lengths": [
+      1,
+      6,
+      12,
+      24,
+      36
+    ],
+    "prefixes_exact": true,
+    "replay_exact": true
+  },
+  {
+    "anchors": 4,
+    "dataset": "ycbv",
+    "frames": 84,
+    "model": "pico_hat",
+    "observations_sha256": "1dfc422d6e4081e39a64fe1d1593343345aff284b77a5c6e57d8ccb41179896d",
+    "predictions_sha256": "b6f31c57846fea9d95ed27996d1bc652acb80d3145791185264b916ca1747608",
+    "prefix_lengths": [
+      1,
+      6,
+      12,
+      24,
+      84
+    ],
+    "prefixes_exact": true,
+    "replay_exact": true
+  }
+]

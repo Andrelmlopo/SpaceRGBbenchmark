@@ -1,0 +1,15 @@
+{
+  "adapter": "rgbtrack",
+  "settings": {
+    "rgbtrack_python": "../../.venv-rgbtrack/bin/python",
+    "rgbtrack_source": "../../third_party/RGBTrack",
+    "track_refine_iterations": 1,
+    "seed": 0,
+    "cpu_threads": 1,
+    "timeout_seconds": 600,
+    "asset_paths": [
+      "../../third_party/RGBTrack/weights",
+      "../../third_party/RGBTrack/XMem"
+    ]
+  }
+}

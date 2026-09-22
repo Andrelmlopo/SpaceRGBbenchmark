@@ -1,0 +1,95 @@
+{
+  "adapter": "gigapose_refined",
+  "settings": {
+    "mega_python": "../../.venv-mega/bin/python",
+    "mega_source": "../../third_party/megapose6d",
+    "mega_data": "../../weights",
+    "mega_pose_frame": "source_mesh",
+    "candidates": 10,
+    "refiner_iterations": 5,
+    "giga_python": "../../.venv-giga/bin/python",
+    "giga_source": "../../third_party/GigaPose",
+    "giga_checkpoint": "../../weights/gigaPose_v1.ckpt",
+    "dinov2_source": "../../third_party/dinov2",
+    "giga_root": "../../data/gigapose_templates",
+    "giga_dataset": "custom",
+    "giga_pose_frame": "source_mesh",
+    "seed": 0,
+    "cpu_threads": 1,
+    "timeout_seconds": 600,
+    "pico_python": "../../.venv-pico/bin/python",
+    "pico_source": "../../third_party/PicoPose",
+    "pico_checkpoint": "../../weights/picopose.ckpt",
+    "giga_object_label": 1,
+    "objects": {
+      "spark:1": {
+        "templates": "../../results/templates/spark/obj000001",
+        "giga_root": "../../results/giga_templates_v2/spark/obj1"
+      },
+      "swisscube:1": {
+        "templates": "../../results/templates/swisscube/obj000001",
+        "giga_root": "../../results/giga_templates_v2/swisscube/obj1"
+      },
+      "shirt:1": {
+        "templates": "../../results/templates/shirt/obj000001",
+        "giga_root": "../../results/giga_templates_v2/shirt/obj1"
+      },
+      "ycbv:2": {
+        "templates": "../../results/templates/ycbv/obj000002",
+        "giga_root": "../../results/giga_templates_v2/ycbv/obj2"
+      },
+      "ycbv:3": {
+        "templates": "../../results/templates/ycbv/obj000003",
+        "giga_root": "../../results/giga_templates_v2/ycbv/obj3"
+      },
+      "ycbv:4": {
+        "templates": "../../results/templates/ycbv/obj000004",
+        "giga_root": "../../results/giga_templates_v2/ycbv/obj4"
+      },
+      "ycbv:5": {
+        "templates": "../../results/templates/ycbv/obj000005",
+        "giga_root": "../../results/giga_templates_v2/ycbv/obj5"
+      },
+      "ycbv:6": {
+        "templates": "../../results/templates/ycbv/obj000006",
+        "giga_root": "../../results/giga_templates_v2/ycbv/obj6"
+      },
+      "ycbv:7": {
+        "templates": "../../results/templates/ycbv/obj000007",
+        "giga_root": "../../results/giga_templates_v2/ycbv/obj7"
+      },
+      "ycbv:8": {
+        "templates": "../../results/templates/ycbv/obj000008",
+        "giga_root": "../../results/giga_templates_v2/ycbv/obj8"
+      },
+      "ycbv:9": {
+        "templates": "../../results/templates/ycbv/obj000009",
+        "giga_root": "../../results/giga_templates_v2/ycbv/obj9"
+      },
+      "ycbv:10": {
+        "templates": "../../results/templates/ycbv/obj000010",
+        "giga_root": "../../results/giga_templates_v2/ycbv/obj10"
+      },
+      "ycbv:11": {
+        "templates": "../../results/templates/ycbv/obj000011",
+        "giga_root": "../../results/giga_templates_v2/ycbv/obj11"
+      },
+      "ycbv:12": {
+        "templates": "../../results/templates/ycbv/obj000012",
+        "giga_root": "../../results/giga_templates_v2/ycbv/obj12"
+      },
+      "ycbv:14": {
+        "templates": "../../results/templates/ycbv/obj000014",
+        "giga_root": "../../results/giga_templates_v2/ycbv/obj14"
+      },
+      "ycbv:15": {
+        "templates": "../../results/templates/ycbv/obj000015",
+        "giga_root": "../../results/giga_templates_v2/ycbv/obj15"
+      },
+      "ycbv:17": {
+        "templates": "../../results/templates/ycbv/obj000017",
+        "giga_root": "../../results/giga_templates_v2/ycbv/obj17"
+      }
+    }
+  }
+}
