@@ -1,0 +1,377 @@
+{
+  "date": "2026-09-26",
+  "scope": "fresh-install development subsets, execution and consistency",
+  "baselines": {
+    "Pico-HAT": "343993a678656fa66d77f81b30ed418af77f508f",
+    "Mega-HAT": "27f765a6b727e7505bb58e4c32267c5be3e64e5f",
+    "SpaceRGBbenchmark": "603b0e82c0c2f28909490d2663de60f9d5b2cc67"
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "vram_gb": 8,
+    "os": "Ubuntu",
+    "driver": "580",
+    "cuda_toolkit": "11.8",
+    "host_compiler": "GCC 11.5"
+  },
+  "fresh_native_environments": {
+    "pico": {
+      "python": "3.9.25",
+      "torch": "2.0.0+cu118",
+      "xformers": "0.0.18"
+    },
+    "mega": {
+      "python": "3.10.21",
+      "torch": "2.7.1+cu118"
+    },
+    "droid": {
+      "python": "3.10.21",
+      "torch": "2.7.1+cu118",
+      "extensions_built_from_source": [
+        "lietorch",
+        "torch_scatter",
+        "droid_backends"
+      ]
+    }
+  },
+  "cpu_tests_python312": {
+    "Pico-HAT": 17,
+    "Mega-HAT": 23,
+    "SpaceRGBbenchmark": 34
+  },
+  "optional_native_tests": {
+    "Pico-HAT": 1,
+    "Mega-HAT": 3
+  },
+  "checks": {
+    "ruff_check": "pass",
+    "ruff_format_check": "pass",
+    "wheel_and_sdist_builds": "pass",
+    "installed_wheel_tests": "pass",
+    "native_dependency_checks": "pass",
+    "source_fetch_repeat_checks": "pass",
+    "cpu_demo_four_identities": "pass",
+    "ycb_resume_identical_artifacts": true
+  },
+  "dataset_sources": {
+    "ycbv": "https://huggingface.co/datasets/bop-benchmark/ycbv",
+    "swisscube": "https://huggingface.co/datasets/EPFL-CVLAB-SPACECRAFT/SwissCube",
+    "shirt": "https://purl.stanford.edu/zq716br5462",
+    "spark_access": "https://zenodo.org/records/10908215"
+  },
+  "subset_settings": {
+    "droid_buffer": 64,
+    "swisscube_droid_resolution": 196608,
+    "swisscube_mesh": "official uncoloured CAD, millimetres",
+    "shirt_mesh": "local Tango CAD, converted to metres; calibration correspondence unverified",
+    "ycbv_localization": "official CNOS/FastSAM predictions at BOP19 target timestamps",
+    "swisscube_localization": "annotation-conditioned mask boxes",
+    "shirt_localization": "annotation-conditioned projected boxes"
+  },
+  "schedule_metadata_audit": {
+    "ycbv_streams": 41,
+    "swisscube_streams": 100,
+    "swisscube_targets": 8522,
+    "shirt_streams": 4,
+    "shirt_targets": 9484,
+    "all_match_frozen_schedules": true
+  },
+  "native_runs": [
+    {
+      "run": "hat-shirt-fixed",
+      "method": "mega_hat",
+      "dataset": "shirt",
+      "stream": "roe1_lightbox",
+      "status": "passed",
+      "inputs": 36,
+      "valid_predictions": 36,
+      "anchors": 9,
+      "valid_motion": 29,
+      "held": 15,
+      "fusion_ready": 16,
+      "exact_replay": true,
+      "cli_replay": true,
+      "exact_prefixes": [
+        1,
+        6,
+        12,
+        18,
+        35
+      ],
+      "observations_sha256": "3ea6a85311371659611d949c07f44670bacbb318eff777c483639d82689901c0",
+      "predictions_sha256": "e3ac1dbc851c1ea852a13416090bad02c0e6c2c7ecc66c58292bc5539db92420"
+    },
+    {
+      "run": "hat-shirt-fixed",
+      "method": "mega_hat",
+      "dataset": "shirt",
+      "stream": "roe1_synthetic",
+      "status": "passed",
+      "inputs": 36,
+      "valid_predictions": 36,
+      "anchors": 9,
+      "valid_motion": 29,
+      "held": 15,
+      "fusion_ready": 16,
+      "exact_replay": true,
+      "cli_replay": true,
+      "exact_prefixes": [
+        1,
+        6,
+        12,
+        18,
+        35
+      ],
+      "observations_sha256": "a2cadda1e9893647d682c25c0916940652d89b8a0de6b576a88f0d611689bd98",
+      "predictions_sha256": "ff07ed8b1c85c3919f993e5073d1801452af62513575630ffa64682d85207755"
+    },
+    {
+      "run": "hat-shirt-fixed",
+      "method": "mega_hat",
+      "dataset": "shirt",
+      "stream": "roe2_lightbox",
+      "status": "passed",
+      "inputs": 36,
+      "valid_predictions": 36,
+      "anchors": 9,
+      "valid_motion": 29,
+      "held": 15,
+      "fusion_ready": 16,
+      "exact_replay": true,
+      "cli_replay": true,
+      "exact_prefixes": [
+        1,
+        6,
+        12,
+        18,
+        35
+      ],
+      "observations_sha256": "2e98bb253b2d73a7ed36c414d20330a5bc904eb9b47d19d2a9c22e2f4e5850be",
+      "predictions_sha256": "a23b149f2ab952240034aa13917b089a40945be80f8ce7ae43332027d42e7b90"
+    },
+    {
+      "run": "hat-shirt-fixed",
+      "method": "mega_hat",
+      "dataset": "shirt",
+      "stream": "roe2_synthetic",
+      "status": "passed",
+      "inputs": 36,
+      "valid_predictions": 36,
+      "anchors": 9,
+      "valid_motion": 29,
+      "held": 15,
+      "fusion_ready": 16,
+      "exact_replay": true,
+      "cli_replay": true,
+      "exact_prefixes": [
+        1,
+        6,
+        12,
+        18,
+        35
+      ],
+      "observations_sha256": "2cceab6bb94c1d541dd940e31d5c551a833f8c3c578ca0af82d8431920358423",
+      "predictions_sha256": "ebc596eec7777af834393d5b9274063797a115aa4263bedd404e820dc13bcb98"
+    },
+    {
+      "run": "hat-shirt-v1",
+      "method": "pico_hat",
+      "dataset": "shirt",
+      "stream": "roe1_lightbox",
+      "status": "passed",
+      "inputs": 36,
+      "valid_predictions": 36,
+      "anchors": 6,
+      "valid_motion": 29,
+      "held": 25,
+      "fusion_ready": 6,
+      "exact_replay": true,
+      "cli_replay": true,
+      "exact_prefixes": [
+        1,
+        6,
+        12,
+        18,
+        35
+      ],
+      "observations_sha256": "d20355f6ad3628952e73eb0e079bc174633dd081c690b604d84a6b868851290d",
+      "predictions_sha256": "e7f9ce45a762124cd7175bffdd9666e15a52aa42d87277413d90849579de9037"
+    },
+    {
+      "run": "hat-shirt-v1",
+      "method": "pico_hat",
+      "dataset": "shirt",
+      "stream": "roe1_synthetic",
+      "status": "passed",
+      "inputs": 36,
+      "valid_predictions": 36,
+      "anchors": 6,
+      "valid_motion": 29,
+      "held": 25,
+      "fusion_ready": 6,
+      "exact_replay": true,
+      "cli_replay": true,
+      "exact_prefixes": [
+        1,
+        6,
+        12,
+        18,
+        35
+      ],
+      "observations_sha256": "9948466803c7526909a4aa9d3548c5f8500db973c34209f08e1320844ea12629",
+      "predictions_sha256": "b944d94ae1879b967f450a934da72f20eb645f4c570f77d9876a0a284b6628b3"
+    },
+    {
+      "run": "hat-shirt-v1",
+      "method": "pico_hat",
+      "dataset": "shirt",
+      "stream": "roe2_lightbox",
+      "status": "passed",
+      "inputs": 36,
+      "valid_predictions": 36,
+      "anchors": 6,
+      "valid_motion": 29,
+      "held": 25,
+      "fusion_ready": 6,
+      "exact_replay": true,
+      "cli_replay": true,
+      "exact_prefixes": [
+        1,
+        6,
+        12,
+        18,
+        35
+      ],
+      "observations_sha256": "4a411a1a79cd8732a11b2dc2da6373ab90d04322729debe5842468e0ab83aa6f",
+      "predictions_sha256": "e3651c54e5aab2e89208ff3529a608c1151b9165f2a20b010c552c65b8dbe6dc"
+    },
+    {
+      "run": "hat-shirt-v1",
+      "method": "pico_hat",
+      "dataset": "shirt",
+      "stream": "roe2_synthetic",
+      "status": "passed",
+      "inputs": 36,
+      "valid_predictions": 36,
+      "anchors": 6,
+      "valid_motion": 29,
+      "held": 35,
+      "fusion_ready": 0,
+      "exact_replay": true,
+      "cli_replay": true,
+      "exact_prefixes": [
+        1,
+        6,
+        12,
+        18,
+        35
+      ],
+      "observations_sha256": "5a402567fe234bc48465dd8c5b43770fa24c5b4715b3c390eaf102c08fa62a92",
+      "predictions_sha256": "7c851bc85552e4552bc7d0271e95618c40a81c7466a92c7c596ae72bd10a9bf9"
+    },
+    {
+      "run": "hat-swisscube-lowmem",
+      "method": "mega_hat",
+      "dataset": "swisscube",
+      "stream": "seq_000400",
+      "status": "passed",
+      "inputs": 36,
+      "valid_predictions": 36,
+      "anchors": 9,
+      "valid_motion": 29,
+      "held": 15,
+      "fusion_ready": 16,
+      "exact_replay": true,
+      "cli_replay": true,
+      "exact_prefixes": [
+        1,
+        6,
+        12,
+        18,
+        35
+      ],
+      "observations_sha256": "5a0006257ca8a4ffeab03311ba3c8f99aa7b32ae5a3f41eda72d7ea51b4173c0",
+      "predictions_sha256": "9b034b87753ab2bc6f4c350115438365505070e9d8d71cf7847a31979fc34892"
+    },
+    {
+      "run": "hat-swisscube-lowmem",
+      "method": "pico_hat",
+      "dataset": "swisscube",
+      "stream": "seq_000400",
+      "status": "passed",
+      "inputs": 36,
+      "valid_predictions": 36,
+      "anchors": 6,
+      "valid_motion": 29,
+      "held": 25,
+      "fusion_ready": 6,
+      "exact_replay": true,
+      "cli_replay": true,
+      "exact_prefixes": [
+        1,
+        6,
+        12,
+        18,
+        35
+      ],
+      "observations_sha256": "ac667422a195af4d10013b73b54edd76e15bca4d5186d99ffbcf4326522c0e4c",
+      "predictions_sha256": "7f15505095f5454d9e125ed0019cd57911671353d5e2ad5ddb69ec5c680a3fa4"
+    },
+    {
+      "run": "hat-ycbv-300",
+      "method": "mega_hat",
+      "dataset": "ycbv",
+      "stream": "000048_obj000006",
+      "status": "passed",
+      "inputs": 300,
+      "valid_predictions": 300,
+      "anchors": 5,
+      "valid_motion": 138,
+      "held": 295,
+      "fusion_ready": 0,
+      "exact_replay": true,
+      "cli_replay": true,
+      "exact_prefixes": [
+        1,
+        6,
+        12,
+        150,
+        299
+      ],
+      "observations_sha256": "0f8ee0c37b1d01a48a6de538a88009395f5fc602e90a24132babede0f93a6c64",
+      "predictions_sha256": "eb4e0f99f526a6bc50f5046d0969e654e32661ee3a9efdfd7482ec938f82ccf2"
+    },
+    {
+      "run": "hat-ycbv-300",
+      "method": "pico_hat",
+      "dataset": "ycbv",
+      "stream": "000048_obj000006",
+      "status": "passed",
+      "inputs": 300,
+      "valid_predictions": 300,
+      "anchors": 5,
+      "valid_motion": 138,
+      "held": 295,
+      "fusion_ready": 0,
+      "exact_replay": true,
+      "cli_replay": true,
+      "exact_prefixes": [
+        1,
+        6,
+        12,
+        150,
+        299
+      ],
+      "observations_sha256": "d721211c3a7ee9291d48d24d9e8a04c6fa4e0bff51235103a154702a30324b62",
+      "predictions_sha256": "9ce9c78edc8ef8f1aecd360699a6f65b0b7fbed97f085a1fc90fc3af83ce8eec"
+    }
+  ],
+  "limits": [
+    "SPARK 2024 was not rerun: the official release requires access approval and no matching local dataset/detections were available.",
+    "SwissCube at the declared 393216-pixel DROID resolution exhausted the 8 GB GPU, even with buffer 64. Successful development runs explicitly used 196608 pixels; the published default and frozen schedule are unchanged.",
+    "SHIRT used an existing Tango CAD converted from mm to m without changing axes/origin. Its correspondence to the historical calibration is unverified. These runs establish execution and replay, not calibrated accuracy.",
+    "YCB-V has only 5 target anchors in the selected 300 dense frames. DROID produced 138 valid motion observations, but fusion remained uninitialized and 295 outputs were held for each method.",
+    "Pico-HAT on SHIRT roe2_synthetic held 35 of 36 outputs and never initialized fusion in this short subset.",
+    "No full-partition fresh accuracy or isolated repeated FPS experiment was performed. The other benchmark adapters were outside this fresh-install test."
+  ]
+}

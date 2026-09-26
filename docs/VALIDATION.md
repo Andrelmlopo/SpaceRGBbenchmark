@@ -99,3 +99,43 @@ All eight saved observation replays and 40 prefix checks remain exact. The 29 CP
 tests, package builds and SRT3D build/self-check pass. The SRT3D usage and timing
 schema strings now use the benchmark's name. See the
 [revision receipt](release_validation_20260923.json).
+
+## Fresh installation and subset checks, 26 September 2026
+
+A new checkout and new Python environments were tested on an 8 GB RTX 3070
+Laptop GPU. PicoPose used Python 3.9/PyTorch 2.0.0+cu118; MegaPose and DROID
+used Python 3.10/PyTorch 2.7.1+cu118. All three DROID extensions were built
+from pinned sources with CUDA 11.8 and GCC 11.5. Checkpoint hashes and repeated
+source-helper checks passed. See the [dated receipt](release_validation_20260926.json).
+
+All 34 CPU tests pass from source and against a newly installed wheel. Lint,
+formatting, package builds and the four-identity CPU demo pass. Five new dataset
+preparation regressions cover mesh patterns, official/flat SwissCube layouts and
+SHIRT mesh units. Fresh inference also reproduced and fixed MegaPose dependency
+and sparse-mesh failures. YCB-V resume preserves prediction, observation and
+state artifacts exactly.
+
+Both HAT methods ran through SpaceRGBbenchmark on 300 dense YCB-V inputs
+(scene 48/object 6; five scored targets), 36 SwissCube inputs (seq_000400),
+and 36 inputs from each of SHIRT's four streams. Each method emitted valid
+SE(3) poses for all 480 inputs. Saved observations reproduce every pose exactly
+through the API and standalone replay CLI. Five causal prefixes per stream
+match exactly (60 checks across both methods).
+
+These checks have material limits:
+
+- SPARK 2024 was not rerun because the restricted dataset and matching inputs
+  were unavailable. Earlier validation receipts are separate evidence.
+- SwissCube's declared 393216-pixel DROID resolution exhausted this GPU.
+  The successful development run explicitly uses 196608 pixels and buffer 64;
+  this does not validate the published default on 8 GB. The frozen schedule
+  and published resolution remain unchanged.
+- SHIRT used a local Tango CAD whose correspondence to the historical calibrated
+  origin is unverified. Its accuracy scores are not release evidence.
+- YCB-V produced 138 valid DROID motion observations per method but too few
+  usable anchors for fusion: 295/300 outputs were held. Pico-HAT also held
+  35/36 outputs on SHIRT roe2_synthetic without initializing fusion. Valid
+  poses and exact replay do not establish useful tracking accuracy.
+- This is not a full-partition accuracy or repeated-FPS experiment. Metadata
+  matches all 41 YCB-V streams, 100 SwissCube sequences (8,522 targets) and
+  four SHIRT streams (9,484 targets), but neural inference used subsets only.

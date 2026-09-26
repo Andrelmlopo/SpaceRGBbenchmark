@@ -39,25 +39,25 @@
       ]
     },
     "ycbv": {
-      "mesh": "${SPACERGB_DATA_ROOT}/ycbv/models/obj_{obj_id:06d}.ply",
+      "mesh": "${SPACERGB_DATA_ROOT}/ycbv/models/obj_{object_id:06d}.ply",
       "mesh_units": "mm",
       "localization_policy": "predicted CNOS/FastSAM; no GT boxes",
       "object_frame": "native_cad",
       "slam_input": "rgb",
       "slam_resolution": 196608,
-      "images": "${SPACERGB_DATA_ROOT}/ycbv/test_all",
+      "images": "${SPACERGB_DATA_ROOT}/ycbv/test",
       "truth": "${SPACERGB_DATA_ROOT}/ycbv/test",
       "targets": "${SPACERGB_DATA_ROOT}/ycbv/test_targets_bop19.json",
       "detections": "${SPACERGB_DATA_ROOT}/ycbv/cnos-fastsam_ycbv-test.json"
     },
     "swisscube": {
-      "mesh": "${SPACERGB_DATA_ROOT}/swisscube/models/object_{object_id:06d}.ply",
-      "mesh_units": "m",
-      "localization_policy": "GT mask bbox control; historical paper mesh colours preserved",
+      "mesh": "${SPACERGB_DATA_ROOT}/swisscube/models/obj_{object_id:06d}.ply",
+      "mesh_units": "mm",
+      "localization_policy": "GT mask bbox control; official uncoloured CAD",
       "object_frame": "native_cad",
       "slam_input": "masked",
       "slam_resolution": 393216,
-      "root": "${SPACERGB_DATA_ROOT}/swisscube/.",
+      "root": "${SPACERGB_DATA_ROOT}/swisscube/testing",
       "boxes": "${SPACERGB_DATA_ROOT}/swisscube/boxes",
       "box_padding": 0.15
     },

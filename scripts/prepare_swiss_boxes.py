@@ -6,13 +6,14 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
+from spacergbbenchmark.datasets.prepare import swiss_sequence_root
 from spacergbbenchmark.io import atomic_json, read_json
 
 
 def prepare(root, output):
     for number in range(400, 500):
         name = f"seq_{number:06d}"
-        masks = sorted((Path(root) / name / "mask_visib").glob("*_000000.png"))
+        masks = sorted((swiss_sequence_root(root, name) / "mask_visib").glob("*_000000.png"))
         if not masks:
             raise ValueError(f"Missing official test masks: {name}")
         boxes = {}

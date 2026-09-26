@@ -24,6 +24,28 @@ index 56f7e50..d0e2564 100644
  
          # Update modal object bounding boxes
          dets_gt = make_detections_from_segmentation(new_obs.segmentation[None])[0]
+diff --git a/src/megapose/lib3d/mesh_ops.py b/src/megapose/lib3d/mesh_ops.py
+index c29b06f..6f5ae62 100644
+--- a/src/megapose/lib3d/mesh_ops.py
++++ b/src/megapose/lib3d/mesh_ops.py
+@@ -76,12 +76,15 @@ def get_meshes_aabbs_bounds(pts):
+ 
+ def sample_points(points, n_points, deterministic=False):
+     assert points.dim() == 3
+-    assert n_points <= points.shape[1]
+     if deterministic:
+         np_random = np.random.RandomState(0)
+     else:
+         np_random = np.random
+-    point_ids = np_random.choice(points.shape[1], size=n_points, replace=False)
++    # Small CAD meshes still need the requested number of crop/scoring points.
++    # Preserve the original sampling exactly when enough vertices are available.
++    point_ids = np_random.choice(
++        points.shape[1], size=n_points, replace=n_points > points.shape[1]
++    )
+     point_ids = torch.as_tensor(point_ids).to(points.device)
+     points = torch.index_select(points, 1, point_ids)
+     return points
 diff --git a/src/megapose/lib3d/symmetries.py b/src/megapose/lib3d/symmetries.py
 index 79e3d9d..580c8dd 100644
 --- a/src/megapose/lib3d/symmetries.py

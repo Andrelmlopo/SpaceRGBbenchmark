@@ -20,7 +20,9 @@ python3 scripts/fetch_sources.py
 fetches their recorded submodules, applies the MegaPose patch and verifies any
 existing checkout before reuse. Select only needed sources with `--sources`.
 The MegaPose patch covers interpreter lookup, NumPy 2, EGL rendering and explicit
-glTF axis preservation. It changes no benchmark labels or model weights.
+glTF axis preservation. Sparse CAD meshes use vertex sampling with replacement
+when MegaPose requests more points than the mesh contains; dense-mesh sampling
+is unchanged. The patch changes no benchmark labels or model weights.
 
 ## PicoPose and templates
 
@@ -75,12 +77,16 @@ python3.10 -m venv .venv-mega
   --index-url https://download.pytorch.org/whl/cu118
 .venv-mega/bin/python -m pip install -r environments/requirements-mega.txt
 .venv-mega/bin/python -m pip check
+.venv-mega/bin/python -c "import pinocchio, png"
 ```
 
 The adapter imports the pinned MegaPose checkout directly. Keep the NVIDIA EGL
 driver available. If the machine needs `__EGL_VENDOR_LIBRARY_FILENAMES`, use its
 own vendor JSON. Set `mega_data` to the directory containing `megapose-models/`.
 The named RGB multi-hypothesis model needs both coarse and refiner weights.
+Keep the TinyXML 10 pin: the Pinocchio/urdfdom binaries require
+`libtinyxml2.so.10`. The bundled BOP toolkit also imports `pypng`. The import
+check detects these runtime requirements in addition to package metadata checks.
 
 ## GigaPose with MegaPose refinement
 
@@ -182,3 +188,14 @@ If public HTTPS Git access is unavailable but GitHub SSH is configured, use
 directories for diagnosis; select a fresh `--out` directory for a clean fetch.
 The `*-validation-freeze.txt` files are observed inventories, not a claim that
 all platform-specific wheels remain available for every OS and Python version.
+
+## GPU memory for development subsets
+
+An 8 GB RTX 3070 Laptop GPU completed both HAT subset checks with DROID
+resolution 196608 pixels and buffer 64. SwissCube's declared 393216-pixel
+setting ran out of memory on that GPU even with buffer 64. Use a GPU with
+more available memory to validate that declared setting. For a compatibility
+check, change the resolution only in an explicitly labeled local development
+configuration and regenerate its manifest; this changes the experiment. Keep
+full-run buffer sizing and the published protocol separate from short-run
+memory settings. See [validation limits](VALIDATION.md).

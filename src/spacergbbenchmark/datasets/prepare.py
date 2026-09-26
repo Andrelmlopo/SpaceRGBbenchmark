@@ -218,11 +218,21 @@ def prepare_ycbv(b):
         b.add(f"{scene:06d}_obj{obj:06d}", obj, frames, truths, 640, 480)
 
 
+def swiss_sequence_root(root, name):
+    """Accept both the official nested BOP export and existing flat layouts."""
+    sequence = Path(root) / name
+    if (sequence / "scene_camera.json").is_file():
+        return sequence
+    if (sequence / "000000" / "scene_camera.json").is_file():
+        return sequence / "000000"
+    raise FileNotFoundError(f"Missing SwissCube scene_camera.json under {sequence}")
+
+
 def prepare_swisscube(b):
     cfg = b.config
     for number in range(400, 500):
         name = f"seq_{number:06d}"
-        root = Path(cfg["root"]) / name
+        root = swiss_sequence_root(cfg["root"], name)
         cameras = read_json(b.source(root / "scene_camera.json"))
         truth = read_json(b.source(root / "scene_gt.json"))
         boxes = read_json(b.source(Path(cfg["boxes"]) / f"{name}.json"))
@@ -257,7 +267,8 @@ def prepare_shirt(b):
     cal = read_json(b.source(cfg["calibration"]))
     align, delta = np.asarray(cal["R_align"]), np.asarray(cal["delta"])
     # Explicit annotation-conditioned input generation. This runs before inference.
-    mesh = trimesh.load(cfg["mesh"], force="mesh")
+    mesh = trimesh.load(b.source(cfg["mesh"].format(object_id=1)), force="mesh")
+    mesh.apply_scale({"m": 1.0, "cm": 0.01, "mm": 0.001}[cfg.get("mesh_units", "m")])
     lo, hi = mesh.bounds
     corners = np.array(list(itertools.product(*zip(lo, hi))), dtype=np.float32)
     for trajectory, domain in itertools.product(("roe1", "roe2"), ("synthetic", "lightbox")):

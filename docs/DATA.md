@@ -45,13 +45,24 @@ image_id, category_id, bbox, score and optional COCO mask RLE. CAD files follow
 `obj_<six-digit-object>.ply` in millimetres. The non-symmetric object list is
 frozen by the code and target inventory. Only the matching object's highest-score
 detection is eligible. Missing detection is not a missing RGB frame.
+The official `ycbv_test_all.zip` extracts to `test/`; the example uses that same
+dense directory for images and labels. The smaller `test_bop19` archive is not
+a substitute for temporal inputs. Set `images` explicitly if you keep the dense
+video in a directory named `test_all/`.
 
-SwissCube uses `seq_000400/rgb/<six-digit-frame>.png`, `scene_camera.json`,
+SwissCube accepts the official `testing/seq_000400/000000/` layout: set `root`
+to the download's `testing` directory. Existing flattened `seq_000400/` layouts
+are also accepted. Each sequence contains `rgb/<six-digit-frame>.jpg` (PNG is
+also supported), `scene_camera.json`,
 `scene_gt.json` and `mask_visib/<frame>_000000.png`. Provide per-sequence box JSON
 files under `boxes`, mapping frame IDs to tight xyxy silhouette boxes. The loader
 adds the explicit padding. The separate silhouette remains DROID's mask input.
 All 100 variable-length streams must be present. Extra historical subset folders
 are ignored because the exact stream IDs are explicit.
+The official mesh is `models/obj_000001.ply` in millimetres and has no vertex
+colours. The example configuration uses that asset. For a converted or historical
+coloured mesh, set its actual units and describe its appearance provenance in
+`localization_policy`; fresh templates are not historical benchmark templates.
 
 SHIRT uses `camera.json`, `roe1/roe1.json`, `roe2/roe2.json`, and
 `<trajectory>/<synthetic-or-lightbox>/images/<filename>`. The included historical
