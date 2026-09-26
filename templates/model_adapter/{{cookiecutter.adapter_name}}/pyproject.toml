@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "{{cookiecutter.adapter_name}}"
+version = "0.1.0"
+requires-python = ">=3.10"
+authors = [{name = "{{cookiecutter.author}}"}]
+dependencies = ["spacergbbenchmark>=0.1.0"]
+
+[project.entry-points."spacergbbenchmark.models"]
+{{cookiecutter.adapter_name}} = "{{cookiecutter.package_name}}:{{cookiecutter.class_name}}"
+
+[tool.setuptools.packages.find]
+where = ["src"]

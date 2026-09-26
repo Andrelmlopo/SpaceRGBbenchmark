@@ -1,0 +1,100 @@
+diff --git a/src/megapose/config.py b/src/megapose/config.py
+index d1cdecb..c174636 100644
+--- a/src/megapose/config.py
++++ b/src/megapose/config.py
+@@ -42,7 +42,7 @@ BLENDER_VERSION = "blender-2.93.8-linux-x64"
+ BLENDER_INSTALL_DIR = LOCAL_DATA_DIR / BLENDER_VERSION
+ if not BLENDER_INSTALL_DIR.exists():
+     BLENDER_INSTALL_DIR = Path(os.environ["HOME"]) / BLENDER_VERSION
+-PYTHON_BIN_PATH = Path(os.environ["CONDA_PREFIX"]) / "bin/python"
++PYTHON_BIN_PATH = Path(os.sys.executable)
+ 
+ BOP_PANDA3D_DS_DIR = LOCAL_DATA_DIR / "bop_models_panda3d"
+ 
+diff --git a/src/megapose/datasets/augmentations.py b/src/megapose/datasets/augmentations.py
+index 56f7e50..d0e2564 100644
+--- a/src/megapose/datasets/augmentations.py
++++ b/src/megapose/datasets/augmentations.py
+@@ -478,7 +478,7 @@ class CropResizeToAspectTransform(SceneObservationTransform):
+         new_obs.rgb = np.array(rgb_pil, dtype=np.uint8)
+         new_obs.segmentation = np.array(segmentation_pil, dtype=np.int32)
+         if depth_pil is not None:
+-            new_obs.depth = np.array(depth_pil, dtype=np.float_)
++            new_obs.depth = np.array(depth_pil, dtype=np.float64)
+ 
+         # Update modal object bounding boxes
+         dets_gt = make_detections_from_segmentation(new_obs.segmentation[None])[0]
+diff --git a/src/megapose/lib3d/mesh_ops.py b/src/megapose/lib3d/mesh_ops.py
+index c29b06f..6f5ae62 100644
+--- a/src/megapose/lib3d/mesh_ops.py
++++ b/src/megapose/lib3d/mesh_ops.py
+@@ -76,12 +76,15 @@ def get_meshes_aabbs_bounds(pts):
+ 
+ def sample_points(points, n_points, deterministic=False):
+     assert points.dim() == 3
+-    assert n_points <= points.shape[1]
+     if deterministic:
+         np_random = np.random.RandomState(0)
+     else:
+         np_random = np.random
+-    point_ids = np_random.choice(points.shape[1], size=n_points, replace=False)
++    # Small CAD meshes still need the requested number of crop/scoring points.
++    # Preserve the original sampling exactly when enough vertices are available.
++    point_ids = np_random.choice(
++        points.shape[1], size=n_points, replace=n_points > points.shape[1]
++    )
+     point_ids = torch.as_tensor(point_ids).to(points.device)
+     points = torch.index_select(points, 1, point_ids)
+     return points
+diff --git a/src/megapose/lib3d/symmetries.py b/src/megapose/lib3d/symmetries.py
+index 79e3d9d..580c8dd 100644
+--- a/src/megapose/lib3d/symmetries.py
++++ b/src/megapose/lib3d/symmetries.py
+@@ -36,8 +36,8 @@ class ContinuousSymmetry:
+     See https://github.com/thodan/bop_toolkit/blob/master/bop_toolkit_lib/misc.py
+     """
+ 
+-    offset: npt.NDArray[np.float_]
+-    axis: npt.NDArray[np.float_]
++    offset: npt.NDArray[np.float64]
++    axis: npt.NDArray[np.float64]
+ 
+ 
+ @dataclass
+@@ -46,7 +46,7 @@ class DiscreteSymmetry:
+     pose: (4, 4) homogeneous matrix
+     """
+ 
+-    pose: npt.NDArray[np.float_]
++    pose: npt.NDArray[np.float64]
+ 
+ 
+ def make_symmetries_poses(
+diff --git a/src/megapose/panda3d_renderer/panda3d_scene_renderer.py b/src/megapose/panda3d_renderer/panda3d_scene_renderer.py
+index e3606d5..c15caea 100644
+--- a/src/megapose/panda3d_renderer/panda3d_scene_renderer.py
++++ b/src/megapose/panda3d_renderer/panda3d_scene_renderer.py
+@@ -61,7 +61,7 @@ class App(ShowBase):
+     def __init__(self) -> None:
+         p3d.core.load_prc_file_data(
+             __file__,
+-            "load-display pandagl\n"
++            "load-display p3headlessgl\n"
+             "notify-level-assimp fatal\n"
+             "notify-level-egldisplay fatal\n"
+             "notify-level-glgsg fatal\n"
+@@ -200,7 +200,13 @@ class Panda3dSceneRenderer:
+         scale = asset.scaling_factor_mesh_units_to_meters * asset.scaling_factor
+         y, p, r = asset.ypr_offset_deg
+ 
+-        node = self._app.loader.load_model(str(asset.mesh_path), noCache=True)
++        if asset.mesh_path.suffix.lower() in {".glb", ".gltf"}:
++            import gltf
++            node = p3d.core.NodePath(gltf.load_model(
++                str(asset.mesh_path), gltf.GltfSettings(skip_axis_conversion=True)
++            ))
++        else:
++            node = self._app.loader.load_model(str(asset.mesh_path), noCache=True)
+         node.setScale(scale)
+         node.setPos(0, 0, 0)
+         node.setHpr(y, p, r)

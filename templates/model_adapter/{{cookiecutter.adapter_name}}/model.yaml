@@ -1,0 +1,3 @@
+adapter: {{cookiecutter.adapter_name}}
+settings:
+  seed: 0

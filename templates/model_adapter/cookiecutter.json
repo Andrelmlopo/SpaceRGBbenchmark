@@ -1,0 +1,15 @@
+{
+  "adapter_name": "my_pose_model",
+  "package_name": "my_pose_adapter",
+  "class_name": "MyPoseModel",
+  "author": "Andre Lopo",
+  "temporal_mode": [
+    "framewise",
+    "causal",
+    "offline"
+  ],
+  "implementation": [
+    "native",
+    "fixture"
+  ]
+}

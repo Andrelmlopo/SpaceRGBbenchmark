@@ -1,0 +1,29 @@
+{
+  "assets": [
+    {
+      "path": "megapose-models/coarse-rgb-906902141/config.yaml",
+      "sha256": "24de955519e9d65c82a237b29844576989504e956448ecae07b0e2f2b6675bd9",
+      "url": "https://www.paris.inria.fr/archive_ylabbeprojectsdata/megapose/megapose-models/coarse-rgb-906902141/config.yaml"
+    },
+    {
+      "path": "megapose-models/coarse-rgb-906902141/checkpoint.pth.tar",
+      "sha256": "30fa2ba97d1bb1b27f6443b6671f557baebf3dff93fcc8605a6c7924ead759a4",
+      "url": "https://www.paris.inria.fr/archive_ylabbeprojectsdata/megapose/megapose-models/coarse-rgb-906902141/checkpoint.pth.tar"
+    },
+    {
+      "path": "megapose-models/refiner-rgb-653307694/config.yaml",
+      "sha256": "29e02244d9b674fd5e374c9902b567cfe5ef4e2e2e3fef01dd1d6188df7b7d84",
+      "url": "https://www.paris.inria.fr/archive_ylabbeprojectsdata/megapose/megapose-models/refiner-rgb-653307694/config.yaml"
+    },
+    {
+      "path": "megapose-models/refiner-rgb-653307694/checkpoint.pth.tar",
+      "sha256": "52dd473fc719488e2f45a98aac2f83960ebe1534b2845cb292c0a287ba70adb7",
+      "url": "https://www.paris.inria.fr/archive_ylabbeprojectsdata/megapose/megapose-models/refiner-rgb-653307694/checkpoint.pth.tar"
+    },
+    {
+      "path": "gigaPose_v1.ckpt",
+      "sha256": "0f60a23b03ddc41d2135c916ed1e66fb16f814f612dbde0305ae5a2c0f45c932",
+      "url": "https://huggingface.co/datasets/nv-nguyen/gigaPose/resolve/main/gigaPose_v1.ckpt"
+    }
+  ]
+}

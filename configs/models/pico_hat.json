@@ -1,0 +1,69 @@
+{
+  "adapter": "pico_hat",
+  "settings": {
+    "pico_python": "../../.venv-pico/bin/python",
+    "pico_source": "../../third_party/PicoPose",
+    "pico_checkpoint": "../../weights/picopose.ckpt",
+    "pico_pose_frame": "source_mesh",
+    "droid_python": "../../.venv-droid/bin/python",
+    "droid_source": "../../third_party/DROID-SLAM",
+    "droid_checkpoint": "../../weights/droid.pth",
+    "droid_buffer": 2600,
+    "seed": 0,
+    "cpu_threads": 1,
+    "timeout_seconds": 600,
+    "objects": {
+      "spark:1": {
+        "templates": "../../results/templates/spark/obj000001"
+      },
+      "swisscube:1": {
+        "templates": "../../results/templates/swisscube/obj000001"
+      },
+      "shirt:1": {
+        "templates": "../../results/templates/shirt/obj000001"
+      },
+      "ycbv:2": {
+        "templates": "../../results/templates/ycbv/obj000002"
+      },
+      "ycbv:3": {
+        "templates": "../../results/templates/ycbv/obj000003"
+      },
+      "ycbv:4": {
+        "templates": "../../results/templates/ycbv/obj000004"
+      },
+      "ycbv:5": {
+        "templates": "../../results/templates/ycbv/obj000005"
+      },
+      "ycbv:6": {
+        "templates": "../../results/templates/ycbv/obj000006"
+      },
+      "ycbv:7": {
+        "templates": "../../results/templates/ycbv/obj000007"
+      },
+      "ycbv:8": {
+        "templates": "../../results/templates/ycbv/obj000008"
+      },
+      "ycbv:9": {
+        "templates": "../../results/templates/ycbv/obj000009"
+      },
+      "ycbv:10": {
+        "templates": "../../results/templates/ycbv/obj000010"
+      },
+      "ycbv:11": {
+        "templates": "../../results/templates/ycbv/obj000011"
+      },
+      "ycbv:12": {
+        "templates": "../../results/templates/ycbv/obj000012"
+      },
+      "ycbv:14": {
+        "templates": "../../results/templates/ycbv/obj000014"
+      },
+      "ycbv:15": {
+        "templates": "../../results/templates/ycbv/obj000015"
+      },
+      "ycbv:17": {
+        "templates": "../../results/templates/ycbv/obj000017"
+      }
+    }
+  }
+}

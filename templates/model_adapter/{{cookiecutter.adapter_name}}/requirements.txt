@@ -1,0 +1,2 @@
+# Pin the native model dependencies for its isolated environment here.
+# The coordinator dependency is declared in pyproject.toml.

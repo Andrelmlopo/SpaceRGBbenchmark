@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spacergbbenchmark"
+version = "0.1.0"
+description = "Reproducible RGB pose benchmarking on SPARK, YCB-V, SwissCube and SHIRT"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Andre Lopo"}]
+license = "MIT"
+license-files = ["LICENSE", "LICENSES/*.txt"]
+dependencies = ["numpy>=1.26,<3", "scipy>=1.13,<2", "Pillow>=10,<13", "PyYAML>=6,<7"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10", "ruff>=0.13,<1", "build>=1,<2", "cookiecutter>=2.6,<3"]
+plots = ["matplotlib>=3.8,<4"]
+mesh = ["trimesh>=4,<5"]
+data = ["trimesh>=4,<5", "pycocotools>=2.0.7,<3"]
+
+[project.scripts]
+spacergbbenchmark = "spacergbbenchmark.cli:main"
+
+[project.entry-points."spacergbbenchmark.models"]
+fixture = "spacergbbenchmark.models.fixture:FixtureModel"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+spacergbbenchmark = ["protocols/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

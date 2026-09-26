@@ -1,0 +1,18 @@
+{
+  "datasets": {
+    "spark": "../../results/data/spark/dataset.json",
+    "ycbv": "../../results/data/ycbv/dataset.json",
+    "swisscube": "../../results/data/swisscube/dataset.json",
+    "shirt": "../../results/data/shirt/dataset.json"
+  },
+  "models": {
+    "picopose": "../models/picopose.json",
+    "pico_hat": "../models/pico_hat.json",
+    "megapose": "../models/megapose.json",
+    "rgbtrack": "../models/rgbtrack.json",
+    "mega_hat": "../models/mega_hat.json",
+    "gigapose_refined": "../models/gigapose_refined.json",
+    "srt3d": "../models/srt3d.json"
+  },
+  "retries": 0
+}

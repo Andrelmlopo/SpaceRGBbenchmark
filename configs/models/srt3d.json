@@ -1,0 +1,16 @@
+{
+  "adapter": "srt3d",
+  "settings": {
+    "mega_python": "../../.venv-mega/bin/python",
+    "mega_source": "../../third_party/megapose6d",
+    "mega_data": "../../weights",
+    "mega_pose_frame": "source_mesh",
+    "candidates": 10,
+    "refiner_iterations": 5,
+    "srt3d_executable": "../../results/build/srt3d/spacergb_srt3d",
+    "srt3d_model_cache": "../../results/cache/srt3d",
+    "seed": 0,
+    "cpu_threads": 1,
+    "timeout_seconds": 600
+  }
+}

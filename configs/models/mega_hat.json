@@ -1,0 +1,19 @@
+{
+  "adapter": "mega_hat",
+  "settings": {
+    "mega_python": "../../.venv-mega/bin/python",
+    "mega_source": "../../third_party/megapose6d",
+    "mega_data": "../../weights",
+    "mega_pose_frame": "source_mesh",
+    "candidates": 10,
+    "refiner_iterations": 5,
+    "droid_python": "../../.venv-droid/bin/python",
+    "droid_source": "../../third_party/DROID-SLAM",
+    "droid_checkpoint": "../../weights/droid.pth",
+    "droid_buffer": 2600,
+    "seed": 0,
+    "cpu_threads": 1,
+    "timeout_seconds": 600,
+    "bbox_padding": 0.2
+  }
+}

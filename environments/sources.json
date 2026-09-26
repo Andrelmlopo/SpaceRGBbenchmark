@@ -1,0 +1,39 @@
+{
+  "PicoPose": {
+    "url": "https://github.com/foollh/PicoPose.git",
+    "revision": "543f8fe0dc8fe014a602113977fc034bd9b4578d"
+  },
+  "DROID-SLAM": {
+    "url": "https://github.com/princeton-vl/DROID-SLAM.git",
+    "revision": "2dfd39f0dcad44012ca7bbb8aa70b55edbfa9c99"
+  },
+  "megapose6d": {
+    "url": "https://github.com/megapose6d/megapose6d.git",
+    "revision": "f3b8e1247f133f3d098833a251b8f2d744c03e1f",
+    "patch": "patches/megapose6d.patch"
+  },
+  "GigaPose": {
+    "url": "https://github.com/nv-nguyen/gigapose.git",
+    "revision": "17fcf97f493f79e56a215ab10ebff16d95cfe34b"
+  },
+  "RGBTrack": {
+    "url": "https://github.com/GreatenAnoymous/RGBTrack.git",
+    "revision": "23e43f832b82f4813d6ab72773779bf8d2ee4d83"
+  },
+  "SRT3D": {
+    "url": "https://github.com/DLR-RM/3DObjectTracking.git",
+    "revision": "f02106186a1e756450226b3b793e309506817c58"
+  },
+  "Pico-HAT": {
+    "url": "https://github.com/Andrelmlopo/Pico-HAT.git",
+    "revision": "343993a678656fa66d77f81b30ed418af77f508f"
+  },
+  "Mega-HAT": {
+    "url": "https://github.com/Andrelmlopo/Mega-HAT.git",
+    "revision": "6cf7e47e460f94b909a1ce402df32778749a9a2e"
+  },
+  "dinov2": {
+    "url": "https://github.com/facebookresearch/dinov2.git",
+    "revision": "81b2b6419385a321287de91e00282ef7cbd26f94"
+  }
+}
